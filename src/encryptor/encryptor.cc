@@ -216,7 +216,7 @@ int main(int argc, char *argv[]) {
     unsigned char iv[AES_BLOCK_SIZE];
     memcpy(iv, enc_data, AES_BLOCK_SIZE);
     unsigned char *ciphertext = enc_data + AES_BLOCK_SIZE;
-    size_t ciphertext_len = enc_len - 16; // AES_BLOCK_SIZE;
+    size_t ciphertext_len = enc_len - AES_BLOCK_SIZE;
 
     // 3. Расшифровка
     size_t plaintext_len;
