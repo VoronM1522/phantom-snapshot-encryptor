@@ -5,7 +5,8 @@
 #include <stddef.h>
 #pragma GCC diagnostic pop
 
-#define FILE_NAME "/mnt/test.txt"
+#define FILE_NAME "/usb_keystorage/test.txt"
+#define WFILE_NAME "/usb_keystorage/wtest.txt"
 
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 int main(int argc, char** argv) {
@@ -24,6 +25,20 @@ int main(int argc, char** argv) {
 
     fclose(test_file);
     printf("\n\n\n%s\n\n\n", buf);
+
+    FILE* wtest_file = fopen(WFILE_NAME, "w");
+
+    if (wtest_file == NULL) {
+        perror("Cannot opet the wfile!");
+        return 1;
+    }
+
+    if (fwrite(buf, 1, 16, wtest_file) == 0) {
+        perror("Writing error!");
+        return 1;
+    }
+
+    fclose(wtest_file);
 
     free(buf);
     return 0;
