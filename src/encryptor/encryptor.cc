@@ -26,12 +26,21 @@
     Для всего этого придется изменить запуск: нужно будетпередавать не образы (диски), а образ с образами (диск с файлами)
 */
 
+
+
+
+
+
+
+
+
+
 void Component::construct(Genode::Env &) {
-    System_State iniialized;
+    System_State initialized;
 
     // TODO:itialization
 
-    switch (iniialized) {
+    switch (initialized) {
         case INITIALIZED:
             // TODO
             break;
